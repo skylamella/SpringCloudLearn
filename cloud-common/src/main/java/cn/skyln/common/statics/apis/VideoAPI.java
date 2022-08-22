@@ -7,7 +7,5 @@ package cn.skyln.common.statics.apis;
  */
 public class VideoAPI {
 
-    public final static String VIDEO_SERVICE_HOST = "http://localhost:9900";
-
     public final static String FIND_ONE_VIDEO = "/api/v1/video/pub/findOne/";
 }

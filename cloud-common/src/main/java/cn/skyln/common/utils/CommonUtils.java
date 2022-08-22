@@ -5,6 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 import javax.servlet.http.HttpServletRequest;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
+import java.util.Random;
 
 /**
  * @Author: lamella
@@ -29,13 +30,27 @@ public class CommonUtils {
         return null;
     }
 
-    public static String getFullUrl(HttpServletRequest request){
+    public static String getFullUrl(HttpServletRequest request) {
         String requestURL = request.getRequestURL().toString();
         String queryString = request.getQueryString();
-        if(!StringUtils.isEmpty(queryString)){
+        if (!StringUtils.isEmpty(queryString)) {
             requestURL = requestURL + "?" + queryString;
         }
         return requestURL;
+    }
+
+    public static int getRandomNum(int maxNum) {
+        if(maxNum == 1){
+            return 0;
+        }else {
+            Random random = new Random();
+            int temp = random.nextInt(maxNum);
+            if (temp > 0 && temp == maxNum) {
+                return temp - 1;
+            } else {
+                return temp;
+            }
+        }
     }
 
 }
