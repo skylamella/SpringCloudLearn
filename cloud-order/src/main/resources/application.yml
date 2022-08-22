@@ -3,6 +3,10 @@ server:
 spring:
   application:
     name: cloud-order
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.121.130:8848
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://mymysql.skyln.cn:3306/order_cloud?useUnicode=true&characterEncoding=utf-8&useSSL=false

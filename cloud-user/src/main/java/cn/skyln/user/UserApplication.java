@@ -1,4 +1,4 @@
-package cn.skyln.video;
+package cn.skyln.user;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -7,14 +7,14 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
  * @Author: lamella
- * @Date: 2022/08/20/11:47
+ * @Date: 2022/08/22/22:26
  * @Description:
  */
 @SpringBootApplication
-@MapperScan("cn.skyln.video.mapper")
+@MapperScan("cn.skyln.user.mapper")
 @EnableDiscoveryClient
-public class VideoApplication {
-    public static void main(String[] args){
-        SpringApplication.run(VideoApplication.class,args);
+public class UserApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(UserApplication.class, args);
     }
 }
