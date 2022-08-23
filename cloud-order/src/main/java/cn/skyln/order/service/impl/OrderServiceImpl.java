@@ -1,5 +1,6 @@
 package cn.skyln.order.service.impl;
 
+import cn.skyln.common.domain.entity.Video;
 import cn.skyln.order.service.OrderService;
 
 /**

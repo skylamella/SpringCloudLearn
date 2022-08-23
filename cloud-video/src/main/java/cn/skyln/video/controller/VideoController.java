@@ -1,8 +1,8 @@
 package cn.skyln.video.controller;
 
 import cn.skyln.common.domain.entity.Video;
-import cn.skyln.common.statics.types.JsonCode;
-import cn.skyln.common.statics.types.JsonMessage;
+import cn.skyln.common.statics.JsonCode;
+import cn.skyln.common.statics.JsonMessage;
 import cn.skyln.common.utils.JsonReturn;
 import cn.skyln.common.utils.StaticValidation;
 import cn.skyln.video.service.VideoService;
@@ -28,7 +28,7 @@ public class VideoController {
     private VideoService videoService;
 
     @RequestMapping("/pub/findOne/{videoId}")
-    public String findOneVideo(@PathVariable("videoId") String videoId) {
+    public String findOneVideo(@PathVariable(value = "videoId") String videoId) {
         if (StaticValidation.stringIsNumeric(videoId)) {
             Video video = videoService.findOneById(Integer.parseInt(videoId));
             if (Objects.isNull(video)) {

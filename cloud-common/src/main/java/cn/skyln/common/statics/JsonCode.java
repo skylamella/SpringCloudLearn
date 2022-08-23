@@ -1,4 +1,4 @@
-package cn.skyln.common.statics.types;
+package cn.skyln.common.statics;
 
 /**
  * @Author: lamella
