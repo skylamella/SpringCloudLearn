@@ -4,6 +4,10 @@ spring:
   application:
     name: cloud-order
   cloud:
+    sentinel:
+      transport:
+        dashboard: 192.168.121.130:8080
+        port: 8920
     nacos:
       discovery:
         server-addr: 192.168.121.130:8848
