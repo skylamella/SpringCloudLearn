@@ -31,4 +31,15 @@ public class JsonMessage {
     public final static String ERROR_DATA_MESSAGE = "错误数据：";
 
     public final static String NO_DATA_MESSAGE = "数据不存在，请检查后重新输入。";
+
+    //流控相关错误码
+    public final static String FLOW_EXCEPTION_MESSAGE = "已触发限流，请稍后再次尝试。";
+
+    public final static String DEGRADE_EXCEPTION_MESSAGE = "已触发降级，请稍后再次尝试。";
+
+    public final static String PARAM_FLOW_EXCEPTION_MESSAGE = "热点参数异常，已触发流量控制，请稍后再次尝试。";
+
+    public final static String SYSTEM_BLOCK_EXCEPTION_MESSAGE = "系统规则异常，已触发流量控制，请稍后再次尝试。";
+
+    public final static String AUTHORITY_EXCEPTION_MESSAGE = "认证异常，已触发流量控制，请稍后再次尝试。";
 }

@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Author: lamella
@@ -68,5 +71,22 @@ public class OrderController {
 
         log.info("【{}】 {}", JsonCode.SUCCESS_CODE, JsonMessage.OPERATE_SUCCESS_MESSAGE);
         return JsonReturn.returnJson(JsonCode.SUCCESS_CODE, JsonMessage.OPERATE_SUCCESS_MESSAGE, videoOrder);
+    }
+    /**
+     * @Description: 模拟线程池流控
+     * @Author: lamella
+     * @Date: 2022/8/25/21:53
+     */
+    @RequestMapping("list")
+    public Object list() {
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Map<String, String> map = new HashMap<>();
+        map.put("title1", "title1title1title1title1");
+        map.put("title2", "title2title2title2title2");
+        return map;
     }
 }
