@@ -26,3 +26,8 @@ mybatis:
 #cloud-video:
 #  ribbon:
 #    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedResponseTimeRule
+
+#开启Feign对Sentinel的支持
+feign:
+  sentinel:
+    enabled: true

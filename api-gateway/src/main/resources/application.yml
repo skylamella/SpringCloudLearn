@@ -1,0 +1,37 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.121.130:8848
+
+    gateway:
+      routes: #数组形式
+        - id: order-service  #路由唯一标识
+          uri: lb://cloud-order
+          order: 1 #优先级，数字越小优先级越高
+          predicates: #断言 配置哪个路径才转发
+            - Path=/order-server/**
+          filters: #过滤器，请求在传递过程中通过过滤器修改
+            - StripPrefix=1  #去掉第一层前缀
+        - id: user-service  #路由唯一标识
+            uri: lb://cloud-user
+            order: 1 #优先级，数字越小优先级越高
+            predicates: #断言 配置哪个路径才转发
+              - Path=/user-server/**
+            filters: #过滤器，请求在传递过程中通过过滤器修改
+              - StripPrefix=1  #去掉第一层前缀
+        - id: video-service  #路由唯一标识
+            uri: lb://cloud-video
+            order: 1 #优先级，数字越小优先级越高
+            predicates: #断言 配置哪个路径才转发
+              - Path=/video-server/**
+            filters: #过滤器，请求在传递过程中通过过滤器修改
+              - StripPrefix=1  #去掉第一层前缀
+      discovery:
+        locator:
+          enabled: true

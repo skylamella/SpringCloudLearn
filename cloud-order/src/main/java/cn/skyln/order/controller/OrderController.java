@@ -8,16 +8,16 @@ import cn.skyln.common.utils.JsonReturn;
 import cn.skyln.order.service.feignClient.VideoService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @Author: lamella
@@ -29,7 +29,7 @@ import java.util.concurrent.TimeUnit;
 @RequestMapping("/api/v1/video_order")
 public class OrderController {
 
-    @Autowired
+    @Resource(type = VideoService.class)
     private VideoService videoService;
 
     @PostMapping("/pri/new_order/{videoId}")
@@ -65,28 +65,29 @@ public class OrderController {
         JSONObject video = new JSONObject(jsonObject.getStr("dataBody"));
         VideoOrder videoOrder = new VideoOrder();
         videoOrder.setVideoId(video.getInt("id"));
-        videoOrder.setVideoTitle(jsonObject.getStr("title"));
-        videoOrder.setVideoImg(jsonObject.getStr("cover_img"));
+        videoOrder.setVideoTitle(video.getStr("title"));
+        videoOrder.setVideoImg(video.getStr("cover_img"));
         videoOrder.setCreateTime(new Date());
-
         log.info("【{}】 {}", JsonCode.SUCCESS_CODE, JsonMessage.OPERATE_SUCCESS_MESSAGE);
         return JsonReturn.returnJson(JsonCode.SUCCESS_CODE, JsonMessage.OPERATE_SUCCESS_MESSAGE, videoOrder);
     }
+
     /**
      * @Description: 模拟线程池流控
      * @Author: lamella
      * @Date: 2022/8/25/21:53
      */
     @RequestMapping("list")
-    public Object list() {
-        try {
-            TimeUnit.SECONDS.sleep(3);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    public Object list(HttpServletRequest request) {
+//        try {
+//            TimeUnit.SECONDS.sleep(3);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         Map<String, String> map = new HashMap<>();
         map.put("title1", "title1title1title1title1");
         map.put("title2", "title2title2title2title2");
+        map.put("port", request.getServerPort() + "");
         return map;
     }
 }
