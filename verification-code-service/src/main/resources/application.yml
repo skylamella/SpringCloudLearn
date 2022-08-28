@@ -1,0 +1,33 @@
+#server:
+#  port: 9990
+#spring:
+#  application:
+#    name: verification-code-service
+#  zipkin:
+#    base-url: http://192.168.121.130:9411/ #zipkin地址
+#    discovery-client-enabled: false  #不用开启服务发现
+#  sleuth:
+#    sampler:
+#      probability: 1.0 #采样百分比
+#  cloud:
+#    sentinel:
+#      transport:
+#        dashboard: 192.168.121.130:8080
+#        port: 8990
+#    nacos:
+#      discovery:
+#        server-addr: 192.168.121.130:8848
+##开启Feign对Sentinel的支持
+#feign:
+#  sentinel:
+#    enabled: true
+#
+#skyln:
+#  verification:
+#    text:
+#      char_length: 4
+#      char_space: 8
+#      noise_impl: com.google.code.kaptcha.impl.NoNoise
+#      obscurificator_impl: com.google.code.kaptcha.impl.WaterRipple
+#      char_string: 0123456789QAZXSWEDCVFRTGBNHYUJMKIOLP
+##      noise_color:

@@ -32,7 +32,7 @@ public class OrderController {
     @Resource(type = VideoService.class)
     private VideoService videoService;
 
-    @PostMapping("/pri/new_order/{videoId}")
+    @RequestMapping("/pri/new_order/{videoId}")
     public String newVideoOrder(@PathVariable(value = "videoId") String videoId) {
         JSONObject jsonObject = new JSONObject();
         try {

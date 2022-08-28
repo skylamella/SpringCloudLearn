@@ -9,7 +9,6 @@ import cn.skyln.video.service.VideoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,8 +29,6 @@ public class VideoController {
     private VideoService videoService;
     @Autowired
     private RedisTemplate redisTemplate;
-    @Autowired
-    private StringRedisTemplate stringRedisTemplate;
 
     @RequestMapping("/pub/findOne/{videoId}")
     public String findOneVideo(@PathVariable(value = "videoId") String videoId) {
