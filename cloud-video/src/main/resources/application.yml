@@ -3,6 +3,10 @@
 #spring:
 #  application:
 #    name: cloud-video
+#  redis:
+#    host: 192.168.121.128
+#    password: redisPWD
+#    port: 6379
 #  zipkin:
 #    base-url: http://192.168.121.130:9411/ #zipkin地址
 #    discovery-client-enabled: false  #不用开启服务发现
